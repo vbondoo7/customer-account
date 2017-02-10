@@ -136,7 +136,7 @@
 		</plugins>
 	</build>
 
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>cox-bis-spring</id>
 			<name>Cox BIS Official Repository</name>
@@ -148,5 +148,5 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	</repositories>
+	</repositories> -->
 </project>
