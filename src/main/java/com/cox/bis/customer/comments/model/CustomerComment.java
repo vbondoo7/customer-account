@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cox.bis.customer.comments.model.Message;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+@JsonInclude(Include.NON_NULL)
 public class CustomerComment {
 	
 	private String siteId;
@@ -13,6 +16,7 @@ public class CustomerComment {
 	private String entryDate;
 	private String sequenceNumber;
 	private String success;
+	@JsonInclude(Include.NON_EMPTY)
 	private List<Message> messages;
 	private String commentLineText;
 	private String userId;

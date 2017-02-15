@@ -5,6 +5,12 @@ public class Message {
 	private String code;
 	private String message;
 	private String detail;
+	
+	public Message(String code, String message) {
+		setCode(code);
+		setMessage(message);
+	}
+	
 	public String getCode() {
 		return code;
 	}
@@ -23,5 +29,4 @@ public class Message {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-
 }

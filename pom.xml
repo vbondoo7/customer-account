@@ -13,12 +13,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-
 	<version>0.0.1-SNAPSHOT</version>
 	<groupId>com.cox.bis</groupId>
-	<artifactId>customer-comments</artifactId>
+	<artifactId>customer-account</artifactId>
 
-	<name>Customer Comments Camel and Spring Boot</name>
+	<name>Customer Accounts - Camel and Spring Boot</name>
 	<description>Shows how to use Camel with Spring Boot in the Java Container</description>
 
 	<properties>
@@ -26,9 +25,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<spring-boot-version>1.4.2.RELEASE</spring-boot-version>
+		<spring-boot-version>1.5.1.RELEASE</spring-boot-version>
 		<docker.image.prefix>springio</docker.image.prefix>
-
+		<java.version>1.8</java.version>
 		<!-- Camel -->
 		<version.camel>2.18.2</version.camel>
 		<!-- Dependencies - Logging -->
@@ -38,11 +37,10 @@
 		<!-- Dependencies - Test LifeCycle -->
 		<version.junit>4.11</version.junit>
 		<!-- Dependencies - Test LifeCycle -->
+		<!-- Start Class for SpringBoot Application -->
+		<!-- <start-class>com.cox.bis.customer.comments.route.CustomerCommentsRB</start-class>-->
 	</properties>
 
-	<!-- <dependencyManagement> <dependencies> <dependency> <groupId>org.springframework.boot</groupId> 
-		<artifactId>spring-boot-dependencies</artifactId> <version>${spring-boot-version}</version> 
-		<type>pom</type> <scope>import</scope> </dependency> </dependencies> </dependencyManagement> -->
 	<dependencies>
 		<!-- spring-boot -->
 		<dependency>
@@ -54,22 +52,32 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 			<version>${spring-boot-version}</version>
-			<!-- <exclusions> <exclusion> <groupId>org.apache.tomcat</groupId> <artifactId>tomcat-jdbc</artifactId> 
-				</exclusion> </exclusions> -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.tomcat</groupId>
+					<artifactId>tomcat-jdbc</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		<!-- <dependency> <groupId>org.apache.commons</groupId> <artifactId>commons-dbcp2</artifactId> 
-			<version>2.0.1</version> </dependency> -->
 		<dependency>
 			<groupId>com.oracle</groupId>
 			<artifactId>oracle-jdbc</artifactId>
 			<version>6.0.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.microsoft.sqlserver/sqljdbc4 -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>sqljdbc4</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+
 		<!-- Camel -->
-		<!-- <dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-spring-boot</artifactId>
-			<version>${version.camel}</version> use the same version as your Camel core version
-		</dependency> -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring-boot-starter</artifactId>
@@ -90,6 +98,34 @@
 			<artifactId>camel-swagger-java</artifactId>
 			<version>${version.camel}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jaxb</artifactId>
+			<version>${version.camel}</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-http</artifactId>
+			<version>${version.camel}</version>
+		</dependency> -->
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-http4 -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-http4</artifactId>
+			<version>${version.camel}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+	<!-- 	<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-xstream</artifactId>
+			<version>${version.camel}</version>
+		</dependency> -->
+
 
 		<!-- test -->
 		<dependency>
@@ -109,6 +145,7 @@
 				<configuration>
 					<!-- <jvmArguments> -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 
 						</jvmArguments> -->
+					<mainClass>com.cox.bis.customer.comments.route.CustomerCommentsRB</mainClass>
 					<resources>
 						<resource>
 							<directory>resources</directory>
@@ -136,7 +173,7 @@
 		</plugins>
 	</build>
 
-	<!-- <repositories>
+	<repositories>
 		<repository>
 			<id>cox-bis-spring</id>
 			<name>Cox BIS Official Repository</name>
@@ -148,5 +185,5 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-	</repositories> -->
+	</repositories>
 </project>
