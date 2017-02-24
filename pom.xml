@@ -38,7 +38,7 @@
 		<version.junit>4.11</version.junit>
 		<!-- Dependencies - Test LifeCycle -->
 		<!-- Start Class for SpringBoot Application -->
-		<!-- <start-class>com.cox.bis.customer.comments.route.CustomerCommentsRB</start-class>-->
+		<!-- <start-class>com.cox.bis.customer.comments.route.CustomerCommentsRB</start-class> -->
 	</properties>
 
 	<dependencies>
@@ -52,12 +52,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 			<version>${spring-boot-version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.apache.tomcat</groupId>
-					<artifactId>tomcat-jdbc</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.oracle</groupId>
@@ -103,11 +97,8 @@
 			<artifactId>camel-jaxb</artifactId>
 			<version>${version.camel}</version>
 		</dependency>
-		<!-- <dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-http</artifactId>
-			<version>${version.camel}</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>org.apache.camel</groupId> <artifactId>camel-http</artifactId> 
+			<version>${version.camel}</version> </dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-http4 -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
@@ -120,12 +111,12 @@
 			<artifactId>commons-lang</artifactId>
 			<version>2.6</version>
 		</dependency>
-	<!-- 	<dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-cxf -->
+		<dependency>
 			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-xstream</artifactId>
+			<artifactId>camel-cxf</artifactId>
 			<version>${version.camel}</version>
-		</dependency> -->
-
+		</dependency>
 
 		<!-- test -->
 		<dependency>
@@ -145,7 +136,7 @@
 				<configuration>
 					<!-- <jvmArguments> -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 
 						</jvmArguments> -->
-					<mainClass>com.cox.bis.customer.comments.route.CustomerCommentsRB</mainClass>
+					<mainClass>com.cox.bis.customer.account.route.CustomerAccountRB</mainClass>
 					<resources>
 						<resource>
 							<directory>resources</directory>

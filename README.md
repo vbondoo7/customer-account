@@ -1,9 +1,9 @@
-# cutomer-account
+# customer-account
 @ SpringBoot POC
 
 Run the application locally 
 
- - git clone https://github.com/vbondoo7/cutomer-account.git
+ - git clone https://github.com/vbondoo7/customer-account.git
  
  - Import as maven project
  
